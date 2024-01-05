@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calc {
+            width: 250px;
+            border: 5px solid black;
+            border-radius: 3px;
+            padding: 20px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formstyle">
+        <form name="form1">
+            <input type="text" name="answre" id="calc"><br><br>
+            <input type="button" value="1" onclick="form1.answre.value += '1'">
+            <input type="button" value="2" onclick="form1.answre.value += '2'">
+            <input type="button" value="3" onclick="form1.answre.value += '3'">
+            <input type="button" value="+" onclick="form1.answre.value += '+'">
+            <br><br>
+            <input type="button" value="4" onclick="form1.answre.value += '4'">
+            <input type="button" value="5" onclick="form1.answre.value += '5'">
+            <input type="button" value="6" onclick="form1.answre.value += '6'">
+            <input type="button" value="-" onclick="form1.answre.value += '-'">
+            <br><br>
+            <input type="button" value="7" onclick="form1.answre.value += '7'">
+            <input type="button" value="8" onclick="form1.answre.value += '8'">
+            <input type="button" value="9" onclick="form1.answre.value += '9'">
+            <input type="button" value="*" onclick="form1.answre.value += '*'">
+            <br><br>
+            <input type="button" value="/" onclick="form1.answre.value += '/'">
+            <input type="button" value="0" onclick="form1.answre.value += '0'">
+            <input type="button" value="." onclick="form1.answre.value += '.'">
+            <input type="button" value="=" onclick="form1.answre.value = eval(form1.answre.value)">
+
+
+        </form>
+    </div>
+</body>
+
+</html>

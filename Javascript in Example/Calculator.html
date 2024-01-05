@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            background-color: black;
+        }
+
+        .box {
+            width: 340px;
+
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-weight: bold;
+            font-size: 2rem;
+            background-color: rgb(62, 60, 60);
+            color: #ffffff;
+        }
+
+        .box {
+            margin: auto;
+        }
+
+        input {
+            background-color: rgb(62, 60, 60);
+            color: #ffffff;
+            padding: 15px 43px;
+        }
+    </style>
+    <script>
+        flag= true
+        function num(hello) 
+        {
+            if(!flag)
+
+            document.getElementById("icon").value += hello
+            else{
+                document.getElementById("icon").value += hello
+                flag=false
+            }
+        }
+        function opr(symbol) {
+            int = getElementById("icon").value
+            op = (symbol)
+            document.getElementById("icon").value =""
+        }
+        function eval(equal) {
+            nint = document.getElementById("icon").value
+            if (op == "+") 
+            {
+                result= Number(int)+Number(nint)
+            } 
+           else if (op =="-")
+           {
+                result = int- nint
+           }
+           else if (op =="*")
+           {
+                result = int* nint
+           }
+           else if (op =="/")
+           {
+                result = int/ nint
+           }
+           else if (op =="%")
+           {
+                result = int% nint
+           }
+           document.getElementById("icon").value= result
+           flag= true
+        }
+       
+
+    </script>
+
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" id="icon">
+
+        <table>
+            <tr>
+                <td><button onclick="document.getElementById('icon').value =''">C</button></td>
+                <td><button>()</button></td>
+                <td><button>%</button></td>
+                <td><button onclick="num('/')">÷</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="num(1)">1</button></td>
+                <td><button onclick="num(2)">2</button></td>
+                <td><button onclick="num(3)">3</button></td>
+                <td><button onclick="num('*')">×</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="num(4)">4</button></td>
+                <td><button onclick="num(5)">5</button></td>
+                <td><button onclick="num(6)">6</button></td>
+                <td><button onclick="num('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="num(7)">7</button></td>
+                <td><button onclick="num(8)">8</button></td>
+                <td><button onclick="num(9)">9</button></td>
+                <td><button onclick="num('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button>+/-</button></td>
+                <td><button onclick="num(0)">0</button></td>
+                <td><button onclick="num('.')">.</button></td>
+                <td><button onclick="equal('=')">=</button></td>
+            </tr>
+        </table>
+    </div>
+    <h1>inpute form in Calculator</h1>
+    <div>
+        <div class=""></div>
+    </div>
+
+</body>
+
+</html>

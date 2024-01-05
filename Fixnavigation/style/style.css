@@ -1,0 +1,21 @@
+ul#navigation {position: fixed;margin: 0px;padding: 0px;top: 0px;left: 0px;list-style: none;z-index:9999;
+}
+ul#navigation li {width: 100px; margin: 7px 0px;}
+ul#navigation li a { margin-left: -2px;width: 217px;background-color:#CFCFCF;background-repeat:no-repeat;background-position:center center;border:1px solid #AFAFAF;box-shadow: 0px 4px 3px #000;/*  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60); */
+    border-radius: 0px 26px 26px 0px;
+display: flex;
+align-items: center;
+
+margin: 5px 0px;
+text-decoration: none;
+color: black;
+font-weight: bold;
+}
+ul#navigation li span{
+    margin: 0px 0px;
+}
+ul#navigation li img{
+    margin:0px 0px 0px 27px ;
+    width: 44px;
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Object</title>
+    <script>
+        imgArr=[];
+        imgArr[0]=new Image();
+        imgArr[0].src="pics/460.jpg";
+        imgArr[1]=new Image();
+        imgArr[1].src="pics/465.jpg";
+        imgArr[2]=new Image();
+        imgArr[2].src="pics/470.jpg";
+
+        function swapImage(ti,cimage)
+        {
+            rimage=ti.src
+            ti.src=cimage.src;
+        }
+
+        function swapReplace(t2,ri)
+        {
+            t2.src=ri;
+        }
+    </script>
+</head>
+<body>
+    <img src="pics/342.jpg" alt="Thumbnail Image 1" name="ab" onmouseover="swapImage(this,imgArr[0])" onmouseout="swapReplace(this, rimage)" >
+    <img src="pics/456.jpg" alt="Thumbnail Image 2" name="xy" onmouseover="swapImage(this,imgArr[1])" onmouseout="swapReplace(this, rimage)">
+
+</body>
+</html>

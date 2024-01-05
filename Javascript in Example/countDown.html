@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Down</title>
+    <style>
+        #xy
+        {
+            background-color: blue; color: azure; text-align: center; width: 200px; padding: 25px; margin: auto;
+        }
+    </style>
+    <script>
+        function countdown()
+{
+    var ctime=new Date()
+    var catime=Math.trunc(ctime.getTime()/1000);
+
+
+    var ftime=new Date();
+    ftime.setDate(ctime.getDate()+1);
+    ftime.setHours(0);
+    ftime.setMinutes(0);
+    ftime.setSeconds(0);
+
+    var fatime=Math.trunc(ftime.getTime()/1000);
+
+
+    tdiffinsec=fatime-catime;
+    diffHours=Math.floor(tdiffinsec/3600);
+    diffMinutes=Math.floor(tdiffinsec/60)%60
+    diffSeconds=tdiffinsec%60
+
+    document.getElementById("xy").innerText=diffHours+":"+diffMinutes+":"+diffSeconds
+}
+
+setInterval("countdown()",1000)
+    </script>
+</head>
+<body>
+    <p id="xy"></p>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, minimum-scale=1">
+
+<style>
+  * {
+    box-sizing: border-box;
+    cursor: none;
+  }
+
+  .conta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: 40px 80px;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  :root body .container-cursor-1 {
+    z-index: 6;
+    background-color: var(--cursor-1-bg);
+    background-image: linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px), linear-gradient(to right, var(--cursor-1-bg-line) 1px, var(--cursor-1-bg) 1px);
+  }
+</style>
+
+</head>
+<body>
+
+
+
+<section id="cursor-1" class="conta container-cursor-1"></section>
+  <span class="curzr-hover btn btn-previous">
+  </span>
+  <span></span>
+  <span class="curzr-hover btn btn-next">
+  </span>
+<div class="curzr-arrow-pointer" hidden>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path class="inner" d="M25,30a5.82,5.82,0,0,1-1.09-.17l-.2-.07-7.36-3.48a.72.72,0,0,0-.35-.08.78.78,0,0,0-.33.07L8.24,29.54a.66.66,0,0,1-.2.06,5.17,5.17,0,0,1-1,.15,3.6,3.6,0,0,1-3.29-5L12.68,4.2a3.59,3.59,0,0,1,6.58,0l9,20.74A3.6,3.6,0,0,1,25,30Z" fill="#F2F5F8" />
+    <path class="outer" d="M16,3A2.59,2.59,0,0,1,18.34,4.6l9,20.74A2.59,2.59,0,0,1,25,29a5.42,5.42,0,0,1-.86-.15l-7.37-3.48a1.84,1.84,0,0,0-.77-.17,1.69,1.69,0,0,0-.73.16l-7.4,3.31a5.89,5.89,0,0,1-.79.12,2.59,2.59,0,0,1-2.37-3.62L13.6,4.6A2.58,2.58,0,0,1,16,3m0-2h0A4.58,4.58,0,0,0,11.76,3.8L2.84,24.33A4.58,4.58,0,0,0,7,30.75a6.08,6.08,0,0,0,1.21-.17,1.87,1.87,0,0,0,.4-.13L16,27.18l7.29,3.44a1.64,1.64,0,0,0,.39.14A6.37,6.37,0,0,0,25,31a4.59,4.59,0,0,0,4.21-6.41l-9-20.75A4.62,4.62,0,0,0,16,1Z" fill="#111920" />
+  </svg>
+</div>
+
+<script src="script.js"></script>
+
+  <script>
+let sectionName = "cursor-1"
+let sectionPrev = ""
+let sectionList = [
+  "cursor-1"
+]
+let cursorList = [
+  "arrow-pointer"
+]
+let isShiftDone = false
+const btnPrevious = document.querySelector(".btn-previous")
+const btnNext = document.querySelector(".btn-next")
+const header = document.querySelector("header")
+const footer = document.querySelector("footer")
+const root = document.querySelector(':root')
+
+window.onload = function() {
+  shiftIn()
+}
+
+btnPrevious.addEventListener('click', function() {
+  if (isShiftDone) {
+    location.href = "#" + sectionList[(sectionList.indexOf(sectionName) + sectionList.length - 1) % sectionList.length]
+  }
+})
+
+btnNext.addEventListener('click', function() {
+  if (isShiftDone) {
+    location.href = "#" + sectionList[(sectionList.indexOf(sectionName) + 1) % sectionList.length]
+  }
+})
+
+window.addEventListener('popstate', function () {
+  sectionPrev = sectionName
+  sectionName = getAnchor()
+  this.clearInterval(shiftup)
+  pageChange(sectionName, sectionPrev)
+})
+
+function shiftIn() {
+  anime({
+    targets: '.shift-in',
+    translateY: ['50px', '0'],
+    delay: anime.stagger(100),
+    easing: 'easeInOutSine',
+    complete: function() {
+      isShiftDone = true
+    }
+  })
+
+  if (sectionName !== "cursor-2") {
+    anime({
+      targets: '.shift-in',
+      color: '#292927',
+      delay: anime.stagger(100)
+    })
+    root.style.setProperty('--curzr-logo-color', '#292927')
+  } else {
+    anime({
+      targets: '.shift-in',
+      color: '#e6e6e6',
+      delay: anime.stagger(100)
+    })
+    root.style.setProperty('--curzr-logo-color', '#e6e6e6')
+  }
+}
+
+function shiftUp(el) {
+  anime({
+    targets: el,
+    translateY: ['0%', '-100%'],
+    duration: 500,
+    delay: anime.stagger(100),
+    easing: 'easeInOutCubic',
+    complete: function() {
+    }
+  })
+}
+
+function getAnchor() {
+  let anchor = document.URL.split('#')[1]
+  return anchor ? anchor : null
+}
+
+function pageChange(sectionName, sectionPrev) {
+  isShiftDone = false
+  let duration = 1000
+  let sectionIndex = sectionList.findIndex((section) => section === sectionName)
+  changeCursor(sectionIndex) 
+    
+  document.getElementById(sectionName).style.zIndex = sectionList.length + 2
+  document.getElementById(sectionPrev).style.zIndex = sectionList.length
+
+  anime({
+    targets: document.getElementById(sectionName),
+    translateX: ['-100%', '0%'],
+    easing: 'easeInOutCirc'
+  })
+
+  anime({
+    targets: document.getElementById(sectionPrev),
+    translateX: ['0%', '100%'],
+    duration: duration,
+    easing: 'easeInOutCirc',
+    complete: function() {
+      document.getElementById(sectionPrev).style.transform = 'translateX(0%)'
+      document.getElementById(sectionPrev).style.zIndex = sectionList.length - sectionList.indexOf(sectionPrev)
+      shiftup = setInterval(() => {
+        shiftUp('.btn-next small.shift-in')
+      }, 3000)
+    }
+  })
+
+  anime({
+    targets: [header, footer],
+    translateX: ['0%', '50%'],
+    duration: duration,
+    easing: 'easeInCirc',
+    complete: function() {
+      document.getElementById(sectionName).style.zIndex = sectionList.length
+      header.style.transform = 'translateX(0%)'
+      footer.style.transform = 'translateX(0%)'
+      shiftIn()
+    }
+  })
+}
+
+function changeCursor(index) {
+  cursor.hidden()
+  switch (cursorList[index]) {
+    case 'arrow-pointer':
+      cursor = new ArrowPointer()
+      break
+  }
+}
+
+class ArrowPointer {
+  constructor() {
+    this.root = document.body
+    this.cursor = document.querySelector(".curzr-arrow-pointer")
+
+    this.position = {
+      distanceX: 0, 
+      distanceY: 0,
+      distance: 0,
+      pointerX: 0,
+      pointerY: 0,
+    },
+    this.previousPointerX = 0
+    this.previousPointerY = 0
+    this.angle = 0
+    this.previousAngle = 0
+    this.angleDisplace = 0
+    this.degrees = 57.296
+    this.cursorSize = 20
+
+    this.cursorStyle = {
+      boxSizing: 'border-box',
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: '2147483647',
+      width: `${ this.cursorSize }px`,
+      height: `${ this.cursorSize }px`,
+      transition: '250ms, transform 100ms',
+      userSelect: 'none',
+      pointerEvents: 'none'
+    }
+
+    this.init(this.cursor, this.cursorStyle)
+  }
+
+  init(el, style) {
+    Object.assign(el.style, style)
+    setTimeout(() => {
+      this.cursor.removeAttribute("hidden")
+    }, 500)
+    this.cursor.style.opacity = 1
+  }
+
+  move(event) {
+    this.previousPointerX = this.position.pointerX
+    this.previousPointerY = this.position.pointerY
+    this.position.pointerX = event.pageX + this.root.getBoundingClientRect().x
+    this.position.pointerY = event.pageY + this.root.getBoundingClientRect().y
+    this.position.distanceX = this.previousPointerX - this.position.pointerX
+    this.position.distanceY = this.previousPointerY - this.position.pointerY
+    this.distance = Math.sqrt(this.position.distanceY ** 2 + this.position.distanceX ** 2)
+  
+    this.cursor.style.transform = `translate3d(${this.position.pointerX}px, ${this.position.pointerY}px, 0)`
+
+    if (this.distance > 1) {
+      this.rotate(this.position)
+    } else {
+      this.cursor.style.transform += ` rotate(${this.angleDisplace}deg)`
+    }
+  }
+
+  rotate(position) {
+    let unsortedAngle = Math.atan(Math.abs(position.distanceY) / Math.abs(position.distanceX)) * this.degrees
+    let modAngle
+    const style = this.cursor.style
+    this.previousAngle = this.angle
+
+    if (position.distanceX <= 0 && position.distanceY >= 0) {
+      this.angle = 90 - unsortedAngle + 0
+    } else if (position.distanceX < 0 && position.distanceY < 0) {
+      this.angle = unsortedAngle + 90
+    } else if (position.distanceX >= 0 && position.distanceY <= 0) {
+      this.angle = 90 - unsortedAngle + 180
+    } else if (position.distanceX > 0 && position.distanceY > 0) {
+      this.angle = unsortedAngle + 270
+    }
+
+    if (isNaN(this.angle)) {
+      this.angle = this.previousAngle
+    } else {
+      if (this.angle - this.previousAngle <= -270) {
+        this.angleDisplace += 360 + this.angle - this.previousAngle
+      } else if (this.angle - this.previousAngle >= 270) {
+        this.angleDisplace += this.angle - this.previousAngle - 360
+      } else {
+        this.angleDisplace += this.angle - this.previousAngle
+      }
+    }
+    style.left = `${ -this.cursorSize / 2 }px`
+    style.top = `${ 0 }px`
+    style.transform += ` rotate(${this.angleDisplace}deg)`
+  }
+
+  hidden() {
+    this.cursor.style.opacity = 0
+    setTimeout(() => {
+      this.cursor.setAttribute("hidden", "hidden")
+    }, 500)
+  }
+}
+
+let cursor = new ArrowPointer()
+document.onmousemove = function (event) {
+  cursor.move(event)
+}
+document.ontouchmove = function (event) {
+  cursor.move(event.touches[0])
+}
+document.onclick = function () {
+  if (typeof cursor.click === 'function') {
+    cursor.click()
+  }
+}
+    
+  </script>
+
+</body>
+</html>

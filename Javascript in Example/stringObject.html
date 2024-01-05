@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Object</title>
+    <script>
+/*         message="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta cum sequi aut vero veritatis harum in consectetur possimus sit, eligendi, dolore incidunt. Atque illum cumque placeat quibusdam reprehenderit nemo natus."
+
+        document.write(message.substring(10,50)+"<br>");
+        document.write(message.substr(10,50)+"<br>");
+        document.write(message.toUpperCase()+"<br>");
+        document.write(message.toLowerCase()+"<br>");
+        document.write(message.lastIndexOf("sit")+"<br>");
+        document.write(message.charCodeAt(10)+"<br>");
+        document.write(message.replace("sit","up")+"<br>");
+
+        abc=message.split(" ");
+
+        document.write();*/
+
+
+        var a=window.prompt("Enter a value");
+        var b=parseInt(a);
+
+        if(isNaN(b))
+        {
+            alert("Not valid mobile number")
+        }
+        else
+        {
+            if(b.toString().length==10)
+            {
+                alert("Valid mobile number")
+            }
+            else
+            {
+                alert("Not valid mobile number")
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

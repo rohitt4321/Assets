@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #mySidenav a {
+            position: absolute;
+            left: -177px;
+            transition: 0.4s;
+            width: 220px;
+            padding: 5px 5px ;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 0 26px 26px 0;
+            display:flex;
+            align-items: center;
+            justify-content:flex-end;
+            background-color: #fdab13;
+            color: black;
+          
+        }
+        .sidenav{
+            animation: slide 2s ease-in-out reverse;
+        }
+        @keyframes slide{
+            0%{
+                transform: translate(0px,0px);
+            }
+            100%{
+                transform: translate(170px,0px);
+            }
+        }
+        .sidenav img{
+            width: 44px;
+            
+        }
+        
+        .sidenav span{
+         padding-right:5px ;
+            
+        }
+
+        #mySidenav a:hover {
+            left: 0;
+        }
+
+        #Graphics {
+            top: 20px;
+          
+        }
+
+        #uiux {
+            top: 80px;
+
+        }
+
+        #web {
+            top: 140px;
+            
+        }
+
+        #Digital {
+            top: 200px;
+            
+        }
+        #app {
+            top: 260px;
+           
+        }
+        #aiml {
+            top: 320px;
+           
+        }
+        #deops {
+            top: 380px;
+           
+        }
+       
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="index.html" id="Graphics"><span>Graphics Designing </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="uiux"><span>Ui Ux Designing </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="web"><span>Web Designing </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="web"><span> web Development </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="Digital"><span> Digital marketing </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="app"><span> App Development </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="aiml"><span> Ai Ml Data scinece </span> <img src="image/graphic-design.png" alt=""></a>
+        <a href="#" id="deops"><span> DeOps specialist </span> <img src="image/graphic-design.png" alt=""></a>
+    </div>
+
+    <div style="margin-left:80px;">
+        <h2>Hoverable Sidenav Buttons</h2>
+        <p>Hover over the buttons in the left side navigation to open them.</p>
+    </div>
+
+</body>
+
+</html>

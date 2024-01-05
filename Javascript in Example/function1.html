@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Statement</title>
+    <script>
+    function numTables(start=1,end=10)
+    {
+
+        document.write("<table border='1'>");
+        for(i=1;i<=10;i++)
+        {
+            document.write("<tr>");
+            for(k=start;k<=end;k++)
+            {
+                 document.write("<td>"+(k*i)+"</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    }
+    </script>
+</head>
+<body>
+<script>
+    numTables(21,30);
+</script>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae repudiandae ullam, nam amet iusto ad voluptates aut! Doloremque eaque nam maxime dolore incidunt. Optio architecto deserunt nam cupiditate sed placeat.</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae repudiandae ullam, nam amet iusto ad voluptates aut! Doloremque eaque nam maxime dolore incidunt. Optio architecto deserunt nam cupiditate sed placeat.</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae repudiandae ullam, nam amet iusto ad voluptates aut! Doloremque eaque nam maxime dolore incidunt. Optio architecto deserunt nam cupiditate sed placeat.</p>
+<button type="button" onclick="numTables(11,20)">Tables</button>
+<script>
+    numTables();
+</script>
+</body>
+</html>
