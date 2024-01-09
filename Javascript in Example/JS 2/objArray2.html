@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Object</title>
+    <script>
+    var numArray=[];
+    var picsArray=["342.jpg","460.jpg","465.jpg","470.jpg","477.jpg","495.jpg","565.jpg","574.jpg","578.jpg","587.jpg"]
+/*     for(i=1;numArray.length<10;i++)
+    {
+        var num=Math.ceil(Math.random()*10);
+        if(!numArray.includes(num))
+            numArray.push(num)  
+    } */
+
+    do
+    {
+        var num=Math.floor(Math.random()*10);
+        if(!numArray.includes(num))
+            numArray.push(num)  
+    }while(numArray.length<10)
+    </script>
+</head>
+<body>
+<script>
+for(i=0;i<picsArray.length;i++)
+    document.write("<img src='pics/"+picsArray[numArray[i]]+"'>");
+</script>
+</body> 
+</html>

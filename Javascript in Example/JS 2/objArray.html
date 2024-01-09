@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Object</title>
+    <script>
+    student=["Ajay","Deepak","Sanjay","Rajesh","Sujata"];
+    //student=new Array("Ajay","Deepak","Sanjay");
+/*  student[0]="Ajay";
+    student[1]="Deepak";
+    student[2]="Sanjay"; */
+    student.unshift("Rekha"); // Remove an element from the end of an array
+    student.push("Suyash");
+    student.splice(2,2,"Akshay","Sanjana")
+    student.reverse();
+    student.sort();
+
+    abc=student.slice(3,7)
+    </script>
+</head>
+<body>
+<script>
+    for(i=0;i<student.length;i++)
+    //for(i in student)
+    document.write("<h3>"+student[i]+"</h3>");
+
+    document.write(abc);
+    document.write("<p>"+student.join(" - ")+"</p>");
+    document.write(student.includes("Sanjay"))
+</script>
+</body> 
+</html>
