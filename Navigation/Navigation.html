@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+</head>
+<style>
+    body {
+        padding-top: 72px;
+        margin: 0;
+        background-color: #09090b;
+        color: #faf9f5;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        translate: 0 -72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0px 20px;
+        height: 72px;
+        background: #4f52ff;
+        transition: 0.3s;
+    }
+
+    nav.visible {
+        top: 0;
+        translate: 0;
+
+    }
+
+    nav>h1 {
+        width: 36px;
+        height: 36px;
+        background-color: #f9f9f9;
+        color: #4f52ff;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+
+
+    }
+
+    .nav-items {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+    }
+
+    .nav-items a {
+        color: #f9f9f9;
+        text-decoration: none;
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 20px;
+        font-style: normal;
+
+    }
+</style>
+
+<body>
+    <nav class="navbar visible">
+        <img src="file:" alt="">
+        <div class="nav-items"> 
+            <a href="#">Home </a>
+            <a href="#">Service </a>
+            <a href="#">Product </a>
+            <a href="#">Contact </a>
+        </div>
+
+    </nav>
+
+    <header>
+        <h1>Home </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi molestias facere totam quo dolores odit est
+            quia architecto voluptate placeat? Voluptas sequi quae id aliquid ratione corporis officia quasi laborum.
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse autem quibusdam veniam perspiciatis
+            accusantium, eum nemo sit sunt harum! Beatae ad vitae magnam adipisci illum commodi eum at architecto aut!
+        </p>
+        <img src="https://images.unsplash.com/photo-1707343844152-6d33a0bb32c3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" width="50%">
+    </header>
+    <div>
+        <h1>Product </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi molestias facere totam quo dolores odit est
+            quia architecto voluptate placeat? Voluptas sequi quae id aliquid ratione corporis officia quasi laborum.
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse autem quibusdam veniam perspiciatis
+            accusantium, eum nemo sit sunt harum! Beatae ad vitae magnam adipisci illum commodi eum at architecto aut!
+        </p>
+        <img src="https://images.unsplash.com/photo-1707343843344-011332037abb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D"
+            alt="" width="50%">
+    </div>
+    <script>
+        const navbar = document.querySelector(".navbar");
+        let lastScrolltop = 0;
+        window.addEventListener(
+            "scroll", () => {
+                console.log("scroll");
+                var { scrollY } = window;
+                if (scrollY > lastScrolltop) {
+                    navbar.classList.remove("visible");
+
+                }
+                else if (scrollY < lastScrolltop) {
+                    navbar.classList.add("visible");
+
+                }
+                lastScrolltop =
+                    scrollY <= 0 ? 0 : scrollY;
+
+            },
+            { passive: true }
+        )
+    </script>
+</body>
+
+</html>

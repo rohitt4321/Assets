@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
     <style>
-        #test
-        {
-            width: 300px;
+        #test {
+            width: 400px;
+        }
+        img{
+            width: 100%;
         }
     </style>
     <script>
-        imgArray=["imgs/01.jpg","imgs/02.jpg","imgs/03.jpg","imgs/04.jpg","imgs/06.jpg"];
-        i=0;
-        
-        function nextB()
-        {
-            if(i<4)
+        imgArray = ["imgs/01.jpg", "imgs/02.jpg", "imgs/03.jpg", "imgs/04.jpg", "imgs/06.jpg"];
+        i = 0;
+
+        function nextB() {
+            if (i < 4)
                 i++
 
-            document.images[0].src=imgArray[i]
+            document.images[0].src = imgArray[i]
 
             dis(i)
         }
-        function prevB()
-        {
-            if(i>0)
+        function prevB() {
+            if (i > 0)
                 i--
 
-            document.images[0].src=imgArray[i]
+            document.images[0].src = imgArray[i]
 
             dis(i)
         }
-        function dis(pos)
-        {
-            
-            if(pos==0)
-            {
-                document.getElementById("prev").style.display="none";
+        function dis(pos) {
+
+            if (pos == 0) {
+                document.getElementById("prev").style.display = "none";
             }
-            else
-            {
-                document.getElementById("prev").style.display="inline-block";
+            else {
+                document.getElementById("prev").style.display = "inline-block";
             }
 
-            if(pos==4)
-            {
-                document.getElementById("next").style.display="none";
+            if (pos == 4) {
+                document.getElementById("next").style.display = "none";
             }
-            else
-            {
-                document.getElementById("next").style.display="inline-block";
+            else {
+                document.getElementById("next").style.display = "inline-block";
             }
         }
-        
+
     </script>
+<style>
+    .image{
+        width: 350px ;
+    }
+    .image img[src]{
+        width: 100% ;
+    }
+</style>
 </head>
 <body onload="dis(i)">
-<div id="test">
-    <img src="imgs/01.jpg" width="300" name="ab">
-<button type="button" onclick="prevB()" id="prev">Previous</button>
-<button type="button" onclick="nextB()" id="next">Next</button>
-</div>
+    <div id="test">
+        <div class="image"> <img src="imgs/01.jpg" style name="ab"></div>
+        <button type="button" onclick="prevB()" id="prev">Previous</button>
+        <button type="button" onclick="nextB()" id="next">Next</button>
+    </div>
 </body>
+
 </html>
